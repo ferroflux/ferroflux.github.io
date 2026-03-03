@@ -1,101 +1,635 @@
-<!--
-<!DOCTYPE html>
-<html>
-<!--
-  █████▒▓█████  ██▀███   ██▀███   ▒█████    █████▒██▓     █    ██ ▒██   ██▒
-▓██   ▒ ▓█   ▀ ▓██ ▒ ██▒▓██ ▒ ██▒▒██▒  ██▒▓██   ▒▓██▒     ██  ▓██▒▒▒ █ █ ▒░
-▒████ ░ ▒███   ▓██ ░▄█ ▒▓██ ░▄█ ▒▒██░  ██▒▒████ ░▒██░    ▓██  ▒██░░░  █   ░
-░▓█▒  ░ ▒▓█  ▄ ▒██▀▀█▄  ▒██▀▀█▄  ▒██   ██░░▓█▒  ░▒██░    ▓▓█  ░██░ ░ █ █ ▒ 
-░▒█░    ░▒████▒░██▓ ▒██▒░██▓ ▒██▒░ ████▓▒░░▒█░   ░██████▒▒▒█████▓ ▒██▒ ▒██▒
- ▒ ░    ░░ ▒░ ░░ ▒▓ ░▒▓░░ ▒▓ ░▒▓░░ ▒░▒░▒░  ▒ ░   ░ ▒░▓  ░░▒▓▒ ▒ ▒ ▒▒ ░ ░▓ ░
- ░       ░ ░  ░  ░▒ ░ ▒░  ░▒ ░ ▒░  ░ ▒ ▒░  ░     ░ ░ ▒  ░░░▒░ ░ ░ ░░   ░▒ ░
- ░ ░       ░     ░░   ░   ░░   ░ ░ ░ ░ ▒   ░ ░     ░ ░    ░░░ ░ ░  ░    ░  
-           ░  ░   ░        ░         ░ ░             ░  ░   ░      ░    ░  
-                                                                           
-
-
-
-<head>
-  work still in progress
-  <style>
-  </style>
-  <script>
-  </script>
-</head>
-<body>
-  <header>
-    <div>
-    </div>
-  </header>
-  <main>
-    <div>
-    </div>
-  </main>
-  <footer>
-    <div>
-    </div>
-  </footer>
-</body>
-</html>
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Scramble Text Demo</title>
-  <style>
-    body {
-      display: grid;
-      place-items: center;
-      height: 100vh;
-      background: black;
-      color: white;
-      font-family: monospace;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vedant Jadhav — Cybersecurity Engineer</title>
+    <meta name="description"
+        content="Vedant Jadhav — cybersecurity-focused engineering student. Building secure systems. Breaking weak ones. Top 3% on TryHackMe." />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Scroll-reveal base */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 520ms ease, transform 520ms ease;
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Active nav link */
+        .nav-links a.active {
+            color: var(--green);
+        }
+    </style>
 </head>
+
 <body>
-  <h1 data-value="FERROFLUX">FERROFLUX</h1>
 
-  <script>
-    const letters = " ~!@#$%^&*()-_=+[]{}\\|;:'\",.<>?/`1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    <!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <div class="nav-logo">vj<span>@portfolio</span>:~$</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">about</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#certifications">certs</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#experience">experience</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+            <button class="nav-terminal-btn" id="terminal-btn-nav" aria-label="Open terminal mode">
+                &gt;_ terminal
+            </button>
+            <button class="nav-menu-btn" id="menu-btn" aria-label="Toggle navigation">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+    </nav>
 
-    function scrambleText(element) {
-      let interval = null;
-      element.onmouseover = () => {
-        let iteration = 0;
-        clearInterval(interval);
+    <!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+    <section id="hero" aria-label="Hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="container hero-content">
+            <div class="hero-prompt">
+                <span class="hero-prompt-char">$</span> whoami
+            </div>
+            <h1 class="hero-name">Vedant<br><span class="accent">Jadhav</span></h1>
+            <div class="hero-tag">
+                <span id="hero-type" class="hl">Building secure systems.</span><span class="cursor"
+                    aria-hidden="true"></span>
+            </div>
+            <div class="hero-ranking" aria-label="TryHackMe ranking">
+                <span class="dot" aria-hidden="true"></span>
+                Top 3% on TryHackMe
+            </div>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    View Projects
+                </a>
+                <a href="resume.pdf" class="btn btn-ghost" download aria-label="Download resume">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
 
-        interval = setInterval(() => {
-          element.innerHTML = element.dataset.value
-            .split("")
-            .map((char, i) => {
-              if (i < iteration) {
-                return `<span style="color:white">${element.dataset.value[i]}</span>`;
-              }
-              const r = Math.floor(Math.random() * 256);
-              const g = Math.floor(Math.random() * 256);
-              const b = Math.floor(Math.random() * 256);
-              const randomChar = letters[Math.floor(Math.random() * letters.length)];
-              return `<span style="color:rgb(${r},${g},${b})">${randomChar}</span>`;
-            })
-            .join("");
+    <!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+    <section id="about" aria-labelledby="about-title">
+        <div class="container">
+            <div class="section-label">about</div>
+            <h2 class="section-title" id="about-title">Who I Am</h2>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        I'm a cybersecurity-focused engineering student with a systems-level mindset —
+                        interested in understanding how things break as much as how to build them.
+                        My approach is analytical first: model the threat, understand the surface,
+                        then act precisely.
+                    </p>
+                    <p>
+                        I work primarily in Linux environments, scripting in Python, and approaching
+                        problems from a security-by-design perspective. Whether it's evaluating
+                        detection resistance of a covert channel or structuring data pipelines with
+                        validation integrity, I care about correctness under adversarial conditions.
+                    </p>
+                    <p>
+                        My interest in cybersecurity isn't just defensive — I believe understanding
+                        offensive techniques is essential for building systems that hold up in practice,
+                        not just on paper.
+                    </p>
+                    <div class="about-meta">
+                        <div class="about-meta-item">
+                            <span class="about-meta-key">Focus:</span>
+                            <span class="about-meta-val">Security engineering, threat modeling, covert channels, secure
+                                system design</span>
+                        </div>
+                        <div class="about-meta-item">
+                            <span class="about-meta-key">Environment:</span>
+                            <span class="about-meta-val">Linux-primary, CLI-native, terminal-first workflow</span>
+                        </div>
+                        <div class="about-meta-item">
+                            <span class="about-meta-key">Research:</span>
+                            <span class="about-meta-val">Steganography, network security, Python-based automation</span>
+                        </div>
+                        <div class="about-meta-item">
+                            <span class="about-meta-key">Education:</span>
+                            <span class="about-meta-val">Engineering student — Computer Science / Cybersecurity</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-sidebar reveal">
+                    <div class="sidebar-block">
+                        <div class="sidebar-block-title">Security Domains</div>
+                        <div class="tag-list">
+                            <span class="tag accent">Network Security</span>
+                            <span class="tag accent">Threat Modeling</span>
+                            <span class="tag">Steganography</span>
+                            <span class="tag">Cryptography</span>
+                            <span class="tag">Penetration Testing</span>
+                            <span class="tag">Security Analysis</span>
+                            <span class="tag">API Security</span>
+                            <span class="tag">OSINT</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-block">
+                        <div class="sidebar-block-title">Core Stack</div>
+                        <div class="tag-list">
+                            <span class="tag accent">Python</span>
+                            <span class="tag accent">Linux</span>
+                            <span class="tag">Bash</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">Wireshark</span>
+                            <span class="tag">Nmap</span>
+                            <span class="tag">Metasploit</span>
+                            <span class="tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-block">
+                        <div class="sidebar-block-title">Platforms</div>
+                        <div class="tag-list">
+                            <span class="tag accent">TryHackMe — Top 3%</span>
+                            <span class="tag">Kali Linux</span>
+                            <span class="tag">Ubuntu</span>
+                            <span class="tag">WSL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          if (iteration >= element.dataset.value.length) {
-            clearInterval(interval);
-            element.innerHTML = element.dataset.value
-              .split("")
-              .map(c => `<span style="color:white">${c}</span>`)
-              .join("");
-          }
-          iteration += 1 / 3;
-        }, 60);
-      };
-    }
+    <!-- ══════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════ -->
+    <section id="projects" aria-labelledby="projects-title">
+        <div class="container">
+            <div class="section-label">projects</div>
+            <h2 class="section-title" id="projects-title">Selected Work</h2>
+            <div class="projects-grid">
 
-    scrambleText(document.querySelector("h1"));
-  </script>
+                <!-- Project 01 -->
+                <article class="project-card reveal" aria-label="Steganography Secure Communication Tool">
+                    <div class="project-card-num">01 / steganography</div>
+                    <h3 class="project-card-title">Secure Communication Tool via LSB Steganography</h3>
+                    <p class="project-card-desc">
+                        Proof-of-concept covert communication channel using Least Significant Bit embedding.
+                        Encrypted payloads are hidden inside carrier images with statistically minimal
+                        distortion, making detection by naive steganalysis unreliable.
+                    </p>
+                    <div class="project-insight">
+                        <strong>// security insight</strong>
+                        Combined AES-level encryption with LSB embedding — even if the image is intercepted,
+                        the embedded ciphertext reveals nothing without the key. Evaluated against
+                        histogram analysis and chi-square steganalysis attacks.
+                    </div>
+                    <div class="project-stack">
+                        <span class="stack-tag">Python</span>
+                        <span class="stack-tag">OpenCV</span>
+                        <span class="stack-tag">Cryptography</span>
+                        <span class="stack-tag">Pillow</span>
+                        <span class="stack-tag">NumPy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ferroflux/Secure_Data_Hiding_in_Image_Using_Steganography"
+                            class="btn btn-ghost btn-sm" target="_blank" rel="noopener">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 02 -->
+                <article class="project-card reveal" aria-label="Network Vulnerability Scanner">
+                    <div class="project-card-num">02 / network security</div>
+                    <h3 class="project-card-title">Network Vulnerability Assessment Framework</h3>
+                    <p class="project-card-desc">
+                        Modular Python framework for automated network reconnaissance and vulnerability
+                        enumeration. Integrates with Nmap for host discovery and service fingerprinting,
+                        with structured JSON output for downstream analysis.
+                    </p>
+                    <div class="project-insight">
+                        <strong>// security insight</strong>
+                        Focused on reducing false positives through service-version correlation —
+                        a common pain point in automated scanning that causes report noise and missed criticals.
+                    </div>
+                    <div class="project-stack">
+                        <span class="stack-tag">Python</span>
+                        <span class="stack-tag">Nmap</span>
+                        <span class="stack-tag">Socket</span>
+                        <span class="stack-tag">JSON</span>
+                        <span class="stack-tag">Regex</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ferroflux/port_scanner" class="btn btn-ghost btn-sm" target="_blank"
+                            rel="noopener">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 03 -->
+                <article class="project-card reveal" aria-label="Web Data Scraping Pipeline">
+                    <div class="project-card-num">03 / automation</div>
+                    <h3 class="project-card-title">Structured Web Scraping & Data Validation Pipeline</h3>
+                    <p class="project-card-desc">
+                        Automated data extraction pipeline handling anti-scraping mechanisms, dynamic
+                        content, and schema validation. Built with structured error handling and
+                        integrity checks to ensure clean dataset output at scale.
+                    </p>
+                    <div class="project-insight">
+                        <strong>// security insight</strong>
+                        Demonstrated how many public-facing APIs expose internal data structures
+                        through inconsistent rate-limiting and schema leakage — a reconnaissance
+                        vector often underestimated in threat models.
+                    </div>
+                    <div class="project-stack">
+                        <span class="stack-tag">Python</span>
+                        <span class="stack-tag">BeautifulSoup</span>
+                        <span class="stack-tag">Requests</span>
+                        <span class="stack-tag">Pandas</span>
+                        <span class="stack-tag">Pydantic</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ferroflux" class="btn btn-ghost btn-sm" target="_blank"
+                            rel="noopener">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     CERTIFICATIONS
+══════════════════════════════════════ -->
+    <section id="certifications" aria-labelledby="certs-title">
+        <div class="container">
+            <div class="section-label">certifications</div>
+            <h2 class="section-title" id="certs-title">Credentials</h2>
+            <div class="certs-grid">
+
+                <div class="cert-badge reveal">
+                    <div class="cert-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-name">Certified in Cybersecurity (CC)</div>
+                        <div class="cert-issuer">ISC²</div>
+                    </div>
+                </div>
+
+                <div class="cert-badge reveal">
+                    <div class="cert-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-name">Fortinet Certified Fundamentals</div>
+                        <div class="cert-issuer">Fortinet — Network Security</div>
+                    </div>
+                </div>
+
+                <div class="cert-badge reveal">
+                    <div class="cert-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-name">Google Cybersecurity Professional</div>
+                        <div class="cert-issuer">Google — via Coursera</div>
+                    </div>
+                </div>
+
+                <div class="cert-badge reveal">
+                    <div class="cert-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-name">Introduction to Linux</div>
+                        <div class="cert-issuer">Linux Foundation</div>
+                    </div>
+                </div>
+
+                <div class="cert-badge reveal">
+                    <div class="cert-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                        </svg>
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-name">API Security Fundamentals</div>
+                        <div class="cert-issuer">APIsec University</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     SKILLS
+══════════════════════════════════════ -->
+    <section id="skills" aria-labelledby="skills-title">
+        <div class="container">
+            <div class="section-label">skills</div>
+            <h2 class="section-title" id="skills-title">Technical Proficiency</h2>
+            <div class="skills-grid">
+
+                <div class="skill-group reveal">
+                    <div class="skill-group-label">Operating Systems</div>
+                    <div class="skill-items">
+                        <div class="skill-item">Kali Linux</div>
+                        <div class="skill-item">Ubuntu / Debian</div>
+                        <div class="skill-item">Windows (WSL)</div>
+                        <div class="skill-item">Arch Linux</div>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal">
+                    <div class="skill-group-label">Security Domains</div>
+                    <div class="skill-items">
+                        <div class="skill-item">Network Penetration Testing</div>
+                        <div class="skill-item">Threat Modeling</div>
+                        <div class="skill-item">Steganography & Covert Channels</div>
+                        <div class="skill-item">Cryptographic Systems</div>
+                        <div class="skill-item">API Security</div>
+                        <div class="skill-item">OSINT & Reconnaissance</div>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal">
+                    <div class="skill-group-label">Tools & Libraries</div>
+                    <div class="skill-items">
+                        <div class="skill-item">Wireshark</div>
+                        <div class="skill-item">Nmap / Zenmap</div>
+                        <div class="skill-item">Metasploit Framework</div>
+                        <div class="skill-item">Burp Suite</div>
+                        <div class="skill-item">OpenCV</div>
+                        <div class="skill-item">Volatility</div>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal">
+                    <div class="skill-group-label">Scripting Languages</div>
+                    <div class="skill-items">
+                        <div class="skill-item">Python 3.x</div>
+                        <div class="skill-item">Bash / Shell Scripting</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">PowerShell (basic)</div>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal">
+                    <div class="skill-group-label">Networking Concepts</div>
+                    <div class="skill-items">
+                        <div class="skill-item">TCP/IP, UDP Protocol Stack</div>
+                        <div class="skill-item">DNS, HTTP/S, SSH, FTP</div>
+                        <div class="skill-item">Firewall & IDS/IPS Concepts</div>
+                        <div class="skill-item">VPN & Tunneling</div>
+                        <div class="skill-item">Packet Analysis</div>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal">
+                    <div class="skill-group-label">Development & Other</div>
+                    <div class="skill-items">
+                        <div class="skill-item">Git & Version Control</div>
+                        <div class="skill-item">Docker (basic)</div>
+                        <div class="skill-item">REST API Integration</div>
+                        <div class="skill-item">Data Pipeline Automation</div>
+                        <div class="skill-item">Report Writing & Documentation</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════════ -->
+    <section id="experience" aria-labelledby="exp-title">
+        <div class="container">
+            <div class="section-label">experience</div>
+            <h2 class="section-title" id="exp-title">Work & Internships</h2>
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2024<br>Internship</div>
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-track"></div>
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-role">Cyber Security Intern</div>
+                        <div class="timeline-company">IBM SkillsBuild — Edunet Foundation</div>
+                        <ul class="timeline-points">
+                            <li>Developed a secure communication proof-of-concept using LSB steganography for covert
+                                data embedding in image carriers</li>
+                            <li>Implemented image-based payload embedding with OpenCV — evaluating distortion metrics
+                                and visual fidelity post-embed</li>
+                            <li>Evaluated confidentiality guarantees and detection resistance against statistical
+                                steganalysis methods</li>
+                            <li>Documented threat model and attack surface for the covert channel, including key
+                                management considerations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2023<br>Part-time</div>
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-track"></div>
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-role">Data &amp; Web Scraping Assistant</div>
+                        <div class="timeline-company">Idiating Tribe</div>
+                        <ul class="timeline-points">
+                            <li>Automated structured dataset extraction from public web sources using Python
+                                (BeautifulSoup, Requests)</li>
+                            <li>Implemented validation and schema enforcement to ensure data integrity across extraction
+                                cycles</li>
+                            <li>Reduced manual QA effort by ~60% through rule-based anomaly detection in scraped records
+                            </li>
+                            <li>Identified and documented security patterns in target sites — rate limiting, schema
+                                inconsistencies, data leakage vectors</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+    <section id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <div class="contact-inner reveal">
+                <div class="section-label" style="justify-content: center;">contact</div>
+                <h2 class="section-title" id="contact-title" style="text-align:center;">Get in Touch</h2>
+                <p>
+                    Open to internships, research collaborations, and challenging problems in security
+                    engineering. Reach out directly — no recruiters.
+                </p>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/ferroflux" class="contact-link" target="_blank" rel="noopener"
+                        aria-label="LinkedIn profile">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="mailto:jadhavvedant599@gmail.com" class="contact-link" aria-label="Send email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://github.com/ferroflux" class="contact-link" target="_blank" rel="noopener"
+                        aria-label="GitHub profile">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+    <footer>
+        <span>Vedant Jadhav</span> · Built with intent, not templates · 2026
+    </footer>
+
+    <!-- ══════════════════════════════════════
+     TERMINAL OVERLAY
+══════════════════════════════════════ -->
+    <div class="terminal-overlay" id="terminal-overlay" role="dialog" aria-modal="true" aria-label="Terminal mode">
+        <div class="terminal-window">
+            <div class="terminal-titlebar">
+                <div class="terminal-dots" aria-hidden="true">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">vj@portfolio — bash</div>
+                <button class="terminal-close" id="terminal-close" aria-label="Close terminal">esc</button>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+
+                <div class="t-line" data-type>
+                    <span class="t-prompt">vj@portfolio:~$</span>
+                    <span class="t-cmd" data-full="./profile --full">./profile --full</span>
+                </div>
+                <div class="t-blank"></div>
+
+                <div class="t-section">[ IDENTITY ]</div>
+                <div class="t-output">Name : Vedant Jadhav</div>
+                <div class="t-output">Role : Cybersecurity-focused Engineering Student</div>
+                <div class="t-output">Ranking : TryHackMe — Top 3% globally</div>
+                <div class="t-output">Location : India</div>
+                <div class="t-blank"></div>
+
+                <div class="t-section">[ SECURITY DOMAINS ]</div>
+                <div class="t-item">Network Penetration Testing</div>
+                <div class="t-item">Threat Modeling & Attack Surface Analysis</div>
+                <div class="t-item">Steganography & Covert Channel Research</div>
+                <div class="t-item">Cryptographic Systems Design</div>
+                <div class="t-item">API Security & OWASP</div>
+                <div class="t-item">OSINT & Reconnaissance Techniques</div>
+                <div class="t-blank"></div>
+
+                <div class="t-section">[ CORE TOOLS ]</div>
+                <div class="t-item">Python · Bash · OpenCV · Wireshark · Nmap</div>
+                <div class="t-item">Metasploit · Burp Suite · Volatility · Git</div>
+                <div class="t-blank"></div>
+
+                <div class="t-section">[ PROJECTS ]</div>
+                <div class="t-item">Secure Comm Tool — LSB Steganography + AES (Python, OpenCV)</div>
+                <div class="t-item">Network Vuln Assessment Framework (Python, Nmap)</div>
+                <div class="t-item">Structured Web Scraping Pipeline (Python, Pandas)</div>
+                <div class="t-blank"></div>
+
+                <div class="t-section">[ CERTIFICATIONS ]</div>
+                <div class="t-item">ISC² Certified in Cybersecurity (CC)</div>
+                <div class="t-item">Fortinet Certified Fundamentals — Network Security</div>
+                <div class="t-item">Google Cybersecurity Professional Certificate</div>
+                <div class="t-item">Linux Foundation — Introduction to Linux</div>
+                <div class="t-item">API Security Fundamentals — APIsec University</div>
+                <div class="t-blank"></div>
+
+                <div class="t-section">[ CONTACTS ]</div>
+                <div class="t-output">GitHub : github.com/ferroflux</div>
+                <div class="t-output">LinkedIn: linkedin.com/in/ferroflux</div>
+                <div class="t-output">Email : jadhavvedant599@gmail.com</div>
+                <div class="t-blank"></div>
+
+                <div class="t-line">
+                    <span class="t-prompt">vj@portfolio:~$</span>
+                    <span class="t-cmd"><span class="cursor" aria-hidden="true"></span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
+
 </html>
